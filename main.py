@@ -35,6 +35,10 @@ def main():
         updatables.update(dt)
 
         for pysteroid in asteroidables:
+            for bullet in shots: 
+                if pysteroid.collision(bullet) == True:
+                    pysteroid.split()
+                    bullet.kill()
             if pysteroid.collision(player) == True:
                 print("Game over!")
                 sys.exit()
