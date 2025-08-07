@@ -1,6 +1,22 @@
 import pygame
 from constants import *
 
+class CircleShape(pygame.sprite.Sprite):
+    def __init__(self, x, y, radius):
+        if hasattr(self, "containers"):
+            super().__init__(self.containers)
+        else:
+            super().__init__()
+        
+        self.position = pygame.Vector2(x, y)
+        self.velocity = pygame.Vector2(0,0)
+        self.radius = radius
+
+    def draw(self, screen):
+        pass
+
+    def update(self, dt):
+        pass
 
 def main():
     pygame.init()
@@ -16,7 +32,6 @@ def main():
         screen.fill("black")
         pygame.display.flip()
 
-        # limit the framerate to 60 FPS
         dt = clock.tick(60) / 1000
 
 
